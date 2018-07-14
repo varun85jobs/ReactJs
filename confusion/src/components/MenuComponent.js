@@ -9,7 +9,7 @@ class Menu extends Component {
     render() {
         const menu = this.props.dishes.map((dish) => {
             return (
-                <div key={dish.id} className="col-12 col-sm-5">
+                <div key={dish.id} className="col-12 col-sm-6">
                     <Card onClick={() => this.props.onDishSelected(dish.id)}>
                         <CardImg width="100%" src={dish.image} alt={dish.name} />
                         <CardImgOverlay>

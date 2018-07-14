@@ -25,7 +25,7 @@ class DishDetailComponent extends Component {
         }else{
             return (
             <div className="row">
-                <div className="col-12 col-sm-5 mt-1">
+                <div className="col-12 col-sm-6 mt-1">
                     <Card>
                         <CardImg top src={this.props.dish.image} alt={dish.name} />
                         <CardBody>
@@ -34,7 +34,7 @@ class DishDetailComponent extends Component {
                         </CardBody>
                     </Card>
                 </div>
-                <div className="col-12 col-sm-7 mt-1">
+                <div className="col-12 col-sm-6 mt-1">
                     <h3 className="text-left">Comments</h3>
                     {this.renderComments(dish)}
                 </div>
