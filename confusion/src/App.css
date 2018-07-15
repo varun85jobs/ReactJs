@@ -20,6 +20,7 @@
   margin:0px auto;
   background: #9575CD ;
   color:floralwhite;
+  border-radius: 0rem;
 }
 
 address{
@@ -30,4 +31,8 @@ address{
 
 .navbar-dark {
   background-color: #512DA8;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
 }
