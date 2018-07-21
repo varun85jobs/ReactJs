@@ -1,11 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardTitle, CardBody, CardText } from 'reactstrap';
 import Moment from 'react-moment';
+import ConfusionBreadcrumb from './ConfusionBreadcrumbComponent';
 
-class DishDetailComponent extends Component {
+function RenderDish(props) {
+    if (props.dish === undefined) {
+        return <div></div>
+    } else {
+        return (
+            <Card>
+                <CardImg top src={props.dish.image} alt={props.dish.name} />
+                <CardBody>
+                    <CardTitle>{props.dish.name}</CardTitle>
+                    <CardText>{props.dish.description}</CardText>
+                </CardBody>
+            </Card>
+        );
+    }
+}
 
-    renderComments(dish) {
-        const commentItems = dish.comments.map((comment) => 
+function RenderComments(props) {
+    if (props.comments === undefined) {
+        return <div></div>
+    } else {
+        const commentItems = props.comments.map((comment) =>
             <li key={comment.id}>
                 <p className="text-left">{comment.comment}</p>
                 <p className="text-left">--{comment.author}, <Moment format="MMM DD, YYYY">{comment.date}</Moment></p>
@@ -15,33 +33,24 @@ class DishDetailComponent extends Component {
         return (
             <ul className="list-unstyled">{commentItems}</ul>
         );
-
     }
-
-    render() {
-        let dish = this.props.dish;
-        if(dish === undefined){
-            return <div></div>
-        }else{
-            return (
-            <div className="row">
-                <div className="col-12 col-sm-6 mt-1">
-                    <Card>
-                        <CardImg top src={this.props.dish.image} alt={dish.name} />
-                        <CardBody>
-                            <CardTitle>{dish.name}</CardTitle>
-                            <CardText>{dish.description}</CardText>
-                        </CardBody>
-                    </Card>
-                </div>
-                <div className="col-12 col-sm-6 mt-1">
-                    <h3 className="text-left">Comments</h3>
-                    {this.renderComments(dish)}
-                </div>
-            </div>
-            );
-        }
-    }   
 }
 
-export default DishDetailComponent;
+function DishDetail(props) {
+    return (
+        <div className="container">
+            <ConfusionBreadcrumb parent={'menu'} active={props.dish.name} />
+            <div className="row">
+                <div className="col-12 col-md-5 m-1">
+                    <RenderDish dish={props.dish} />
+                </div>
+                <div className="col-12 col-md-5 m-1">
+                    <RenderComments comments={props.comments} />
+                </div>
+            </div>
+        </div>
+    );
+}
+
+
+export default DishDetail;
