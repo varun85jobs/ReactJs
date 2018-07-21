@@ -39,7 +39,7 @@ function RenderComments(props) {
 function DishDetail(props) {
     return (
         <div className="container">
-            <ConfusionBreadcrumb parent={'menu'} active={props.dish.name} />
+            <ConfusionBreadcrumb parent={'Menu'} active={props.dish.name} />
             <div className="row">
                 <div className="col-12 col-md-5 m-1">
                     <RenderDish dish={props.dish} />

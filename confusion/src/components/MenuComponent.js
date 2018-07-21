@@ -26,7 +26,7 @@ class Menu extends Component {
 
         return (
             <div className="container">
-                <ConfusionBreadcrumb parent={'home'} active={'menu'} />
+                <ConfusionBreadcrumb parent={'home'} active={'Menu'} />
                 <div className="row">
                     {menu}
                 </div>
