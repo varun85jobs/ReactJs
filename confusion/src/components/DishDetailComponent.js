@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardImg, CardTitle, CardBody, CardText } from 'reactstrap';
 import Moment from 'react-moment';
 import ConfusionBreadcrumb from './ConfusionBreadcrumbComponent';
+import CommentForm from './CommentForm';
 
 function RenderDish(props) {
     if (props.dish === undefined) {
@@ -46,6 +47,7 @@ function DishDetail(props) {
                 </div>
                 <div className="col-12 col-md-5 m-1">
                     <RenderComments comments={props.comments} />
+                    <CommentForm/>
                 </div>
             </div>
         </div>
