@@ -54,7 +54,8 @@ class CommentForm extends Component{
     submitComment(event){
         this.toggleModal();
         alert("Name: " + this.state.name + " Comment: " + this.state.comment
-            +  " rating: " + this.state.rating);
+            +  " rating: " + this.state.rating + " dishId: " + this.props.dishId);
+        this.props.addComment(this.props.dishId, this.state.rating, this.state.name, this.state.comment)    
         event.preventDefault();
     }
 
@@ -63,7 +64,7 @@ class CommentForm extends Component{
         const disabled = (error !== '' || this.state.touched.name === false) ? true : false; 
         return (
             <div>
-                <Button className="btn btn-light border-dark" onClick={this.toggleModal}><span class="fa fa-edit"></span> Submit Comment</Button>
+                <Button className="btn btn-light border-dark" onClick={this.toggleModal}><span className="fa fa-edit"></span> Submit Comment</Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}><strong>Submit Comment</strong></ModalHeader>
                     <ModalBody>

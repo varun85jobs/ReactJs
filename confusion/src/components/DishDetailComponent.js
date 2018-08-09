@@ -47,7 +47,7 @@ function DishDetail(props) {
                 </div>
                 <div className="col-12 col-md-5 m-1">
                     <RenderComments comments={props.comments} />
-                    <CommentForm/>
+                    <CommentForm dishId={props.dish.id} addComment={props.addComment}/>
                 </div>
             </div>
         </div>
