@@ -89,7 +89,7 @@ class CommentForm extends Component{
                                     invalid={error !== ''}
                                     onBlur={this.handleBlur}
                                     onChange={this.handleChange} />
-                                <FormFeedback className="">{error}</FormFeedback>    
+                                <FormFeedback>{error}</FormFeedback>    
                             </FormGroup>
                             <FormGroup> 
                                 <Label htmlFor="comment">Comment</Label>

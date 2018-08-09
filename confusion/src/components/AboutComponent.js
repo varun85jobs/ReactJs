@@ -16,7 +16,7 @@ function RenderLeader(props) {
                 </Media>
                 <p>{leader.designation}</p>
                 <p>{leader.description}</p>
-                <br/>
+                <br />
             </Media>
         </Media>
     );
@@ -69,12 +69,15 @@ function About(props) {
             <div className="row row-content">
                 <div className="col-12">
                     <h2>Corporate Leadership</h2>
-                    <br/>
+                    <br />
                 </div>
                 <div className="col-12">
-                    <Media list>
-                        { props.leaders.map(leader => <RenderLeader leader={leader}/>) }
-                    </Media>
+                    <ul className="list-unstyled">
+                        {props.leaders.map(leader =>
+                            <li key={leader.name}>
+                                <RenderLeader leader={leader} />
+                            </li>)}
+                    </ul>
                 </div>
             </div>
         </div>
