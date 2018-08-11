@@ -3,6 +3,7 @@ import { Card, CardImg, CardTitle, CardBody, CardText } from 'reactstrap';
 import Moment from 'react-moment';
 import ConfusionBreadcrumb from './ConfusionBreadcrumbComponent';
 import CommentForm from './CommentForm';
+import { Loading } from './LoadingComponent';
 
 function RenderDish(props) {
     if (props.dish === undefined) {
@@ -38,20 +39,40 @@ function RenderComments(props) {
 }
 
 function DishDetail(props) {
-    return (
-        <div className="container">
-            <ConfusionBreadcrumb parent={'Menu'} active={props.dish.name} />
-            <div className="row">
-                <div className="col-12 col-md-5 m-1">
-                    <RenderDish dish={props.dish} />
-                </div>
-                <div className="col-12 col-md-5 m-1">
-                    <RenderComments comments={props.comments} />
-                    <CommentForm dishId={props.dish.id} addComment={props.addComment}/>
+    if (props.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading/>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
+    else if (props.errorMessage) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <h4>{props.errMess}</h4>
+                </div>
+            </div>
+        );
+    }
+    else if (props.dish != null) {
+        return (
+            <div className="container">
+                <ConfusionBreadcrumb parent={'Menu'} active={props.dish.name} />
+                <div className="row">
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderDish dish={props.dish} />
+                    </div>
+                    <div className="col-12 col-md-5 m-1">
+                        <RenderComments comments={props.comments} />
+                        <CommentForm dishId={props.dish.id} addComment={props.addComment} />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 
