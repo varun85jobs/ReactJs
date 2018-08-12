@@ -4,9 +4,9 @@ import {
     CardTitle, CardSubtitle
 } from 'reactstrap';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderCard({ item, isLoading, errorMessage }) {
-
     if (isLoading) {
         return (
             <Loading />
@@ -18,21 +18,22 @@ function RenderCard({ item, isLoading, errorMessage }) {
         );
     }
     else {
-        let cardSubtitle = null;
-        if (item.designation) {
-            cardSubtitle = <CardSubtitle>{item.designation}</CardSubtitle>;
-        }
+        if (item !== undefined) {
+            var cardSubtitle = item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : <div/>;
 
-        return (
-            <Card>
-                <CardImg src={item.image} alt={item.name} />
-                <CardBody>
-                    <CardTitle>{item.name}</CardTitle>
-                    {cardSubtitle}
-                    <CardText>{item.description}</CardText>
-                </CardBody>
-            </Card>
-        );
+            return (
+                <Card>
+                    <CardImg src={baseUrl + item.image} alt={item.name} />
+                    <CardBody>
+                        <CardTitle>{item.name}</CardTitle>
+                        {cardSubtitle}
+                        <CardText>{item.description}</CardText>
+                    </CardBody>
+                </Card>
+            );
+        }else{
+            return <div/>
+        }
     }
 }
 
@@ -45,7 +46,8 @@ function Home(props) {
                         errorMessage={props.dishesErrorMessage} />
                 </div>
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.promotion} />
+                    <RenderCard item={props.promotion} isLoading={props.promotionLoading}
+                        errorMessage={props.promotionErrorMessage} />
                 </div>
                 <div className="col-12 col-md m-1">
                     <RenderCard item={props.leader} />

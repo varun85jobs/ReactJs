@@ -4,6 +4,7 @@ import Moment from 'react-moment';
 import ConfusionBreadcrumb from './ConfusionBreadcrumbComponent';
 import CommentForm from './CommentForm';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderDish(props) {
     if (props.dish === undefined) {
@@ -11,7 +12,7 @@ function RenderDish(props) {
     } else {
         return (
             <Card>
-                <CardImg top src={props.dish.image} alt={props.dish.name} />
+                <CardImg top src={baseUrl + props.dish.image} alt={props.dish.name} />
                 <CardBody>
                     <CardTitle>{props.dish.name}</CardTitle>
                     <CardText>{props.dish.description}</CardText>
