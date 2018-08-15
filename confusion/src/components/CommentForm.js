@@ -55,7 +55,7 @@ class CommentForm extends Component{
         this.toggleModal();
         alert("Name: " + this.state.name + " Comment: " + this.state.comment
             +  " rating: " + this.state.rating + " dishId: " + this.props.dishId);
-        this.props.addComment(this.props.dishId, this.state.rating, this.state.name, this.state.comment)    
+        this.props.postComment(this.props.dishId, this.state.rating, this.state.name, this.state.comment)    
         event.preventDefault();
     }
 
