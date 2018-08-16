@@ -8,7 +8,7 @@ import Home from './HomeComponent';
 import Contact from './ContactComponent';
 import About from './AboutComponent';
 import { connect } from 'react-redux';
-import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/action/ActionCreators';
+import { postComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/action/ActionCreators';
 
 const mapStateToProps = (state) => {
     return {
@@ -24,7 +24,8 @@ const mapDispatchToProps = (dispatch) => {
         postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
         fetchDishes: () => {dispatch(fetchDishes())},
         fetchComments: () => dispatch(fetchComments()),
-        fetchPromos: () => dispatch(fetchPromos())
+        fetchPromos: () => dispatch(fetchPromos()),
+        fetchLeaders: () => dispatch(fetchLeaders()),
     }
 }
 
@@ -34,6 +35,7 @@ class Main extends Component {
         this.props.fetchDishes();
         this.props.fetchComments();
         this.props.fetchPromos();
+        this.props.fetchLeaders();
     }
 
     render() {
@@ -45,7 +47,9 @@ class Main extends Component {
                     promotion={this.props.promotions.promotions.filter(promotion => promotion.featured)[0]}
                     promotionLoading={this.props.promotions.isLoading}
                     promotionErrorMessage={this.props.promotions.errorMessage}
-                    leader={this.props.leaders.filter(leader => leader.featured)[0]}
+                    leader={this.props.leaders.leaders.filter(leader => leader.featured)[0]}
+                    leaderLoading={this.props.leaders.isLoading}
+                    leaderErrorMessage={this.props.leaders.errorMessage}
                 />
             );
         }
