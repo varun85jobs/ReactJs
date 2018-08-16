@@ -73,7 +73,7 @@ class Main extends Component {
                     <Route exact path='/menu' render={() => <Menu dishes={this.props.dishes} />} />
                     <Route path='/menu/:dishId' component={DishWithId} />
                     <Route exact path='/contactus' component={Contact} />} />
-                    <Route exact path='/aboutus' render={() => <About leaders={this.props.leaders} />} />
+                    <Route exact path='/aboutus' render={() => <About leaders={this.props.leaders.leaders} />} />
                     <Redirect to="/home" />
                 </Switch>
                 <Footer />
