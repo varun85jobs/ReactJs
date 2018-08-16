@@ -1,6 +1,5 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Card, CardBody, CardHeader, Media } from 'reactstrap';
 import ConfusionBreadcrumb from './ConfusionBreadcrumbComponent';
 
 function RenderLeader(props) {

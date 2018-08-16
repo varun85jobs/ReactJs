@@ -72,7 +72,7 @@ export const fetchPromos = () => (dispatch) => {
         .then(handleServerResponse, handleServerError)
         .then(response => response.json())
         .then(promotions => dispatch(addPromos(promotions)))
-        .catch(error => dispatch(promosFailed(error.message)));;
+        .catch(error => dispatch(promosFailed(error.message)));
 }
 
 export const promosLoading = () => ({

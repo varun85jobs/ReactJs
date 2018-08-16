@@ -6,9 +6,6 @@ import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
 class Menu extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const props = this.props;
