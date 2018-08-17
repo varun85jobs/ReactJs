@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename={'/ReactJs'}>
           <div className="App">
             <Main />
           </div>

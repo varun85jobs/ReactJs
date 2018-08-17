@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 
 class Menu extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const props = this.props;

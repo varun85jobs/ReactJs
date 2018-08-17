@@ -1,11 +1,13 @@
 {
   "name": "confusion",
   "version": "0.1.0",
+  "homepage": "http://varun85jobs.github.io/ReactJs",
   "private": true,
   "dependencies": {
     "bootstrap": "4.0.0",
     "bootstrap-social": "5.1.1",
     "font-awesome": "4.7.0",
+    "gh-pages": "^1.2.0",
     "moment": "^2.22.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -24,6 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
